@@ -57,8 +57,9 @@ Model.prototype.getData = async function (req, callback) {
     // 5. Build GeoJSON
     let metadata = {
       metadata : {
-        maxRecordCount: MAXRECORDCOUNT,
-        name : req.params.id
+        maxRecordCount: req.query["_limit"] || MAXRECORDCOUNT,
+        name : req.params.id,
+        idField : "OBJECTID"
       }
     };
 
