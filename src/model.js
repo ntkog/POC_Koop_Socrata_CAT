@@ -9,7 +9,7 @@
 const _ = require('lodash')
 const fetch = require('node-fetch')
 const rewind = require('geojson-rewind');
-const MAXRECORDCOUNT = 2000;
+const MAXRECORDCOUNT = process.env["MAXRECORDCOUNT"] || 2000;
 
 function addOBJECTID (arr) {
   return arr.map((o,i) => {
@@ -40,7 +40,8 @@ Model.prototype.getData = async function (req, callback) {
     : "";
 
   // 1. URL hacia SOCRATA endPoint
-  const url = `https://${req.params.host}/resource/${req.params.id}.geojson${queryStr.length > 0 ? `?${queryStr}` : ""}`;
+  //const url = `https://${req.params.host}/resource/${req.params.id}.geojson${queryStr.length > 0 ? `?${queryStr}` : ""}`;
+  const url = `https://${req.params.host}/resource/${req.params.id}.geojson?$limit=${MAXRECORDCOUNT}`;
   console.log(url);
 
   try {
