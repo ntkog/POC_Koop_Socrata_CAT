@@ -3,9 +3,8 @@
   "private": true,
   "version": "1.0.0",
   "description": "An opinionated provider template for koop-cli",
-  "main": "src/index.js",
+  "main": "src/server.js",
   "scripts": {
-    "test": "tape test/*.js | tap-spec",
     "start": "node src/server.js"
   },
   "dependencies": {
@@ -15,7 +14,7 @@
     "lodash": "^4.17.11",
     "node-fetch": "^2.3.0"
   },
-  "author": "",
+  "author": "Jorge Barrachina",
   "license": "MIT",
   "devDependencies": {
     "nock": "^10.0.3",
