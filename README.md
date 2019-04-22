@@ -23,9 +23,10 @@ npm i
 ## Arrancamos Koop
 
 ```bash
-npm run start
+MAXRECORDCOUNT=10000 npm run start
 ```
 
+> **MAXRECORDCOUNT** es límite máximo de entidades que devolverá el GeoServicio
 
 ## Abre otro terminal y teclea lo siguiente
 
